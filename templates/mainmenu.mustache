@@ -1,0 +1,44 @@
+
+
+<!-- /local_boardz_admin/mainmenu -->
+<div class="boardz-main-menu">
+    {{#entities}}
+    <div class="entity-box">
+        <div class="entity-caption">
+            {{name}}
+        </div>
+        <div class="entity-image" style="text-align:center">
+            <img src="{{img}}" style="height:150px;width:150px;margin:10px auto;">
+        </div>
+        <div class="entity-desc">
+            {{{description}}}
+        </div>
+        <div class="entity-link">
+            {{#available}}
+            <a href="{{{url}}}">{{#str}}manage, local_boardz_admin{{/str}}</a>
+            {{/available}}
+            {{^available}}
+            {{#str}}notavailable, local_boardz_admin{{/str}}
+            {{/available}}
+        </div>
+    </div>
+    {{/entities}}
+
+    <div class="entity-box">
+        <div class="entity-caption">
+            {{#str}}system, local_boardz_admin{{/str}}
+        </div>
+        <div class="entity-icon" style="text-align:center">
+            {{#pix}}cog, local_boardz_admin{{/pix}}
+        </div>
+        <div class="entity-link">
+            <u class="system-menu">
+                <li><a href="{{{statusurl}}}">{{#str}}status, local_boardz_admin{{/str}}</a></li>
+                <li><a href="{{{perfurl}}}">{{#str}}performance, local_boardz_admin{{/str}}</a></li>
+                <li><a href="{{{statsurl}}}">{{#str}}stats, local_boardz_admin{{/str}}</a></li>
+                <li><a href="{{{configurl}}}">{{#str}}config, local_boardz_admin{{/str}}</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- local_boardz_admin/mainmenu -->

@@ -1,0 +1,34 @@
+
+
+
+<!-- local_boardz_admin/entitylist -->
+
+{{#hasentities}}
+<table width="100%" class="generaltable">
+    <tr>
+        {{#headers}}
+        <td class="header hd{{i}}" width="{{width}}">{{header}}</td>
+        {{/headers}}
+        <td class="header" width="10%"></td>
+    </tr>
+
+    {{#entities}}
+        <tr data-uid={{uid}}" data-id="{{id}}">
+            {{#data}}
+            <td class="c{{i}}">{{{datum}}}</td>
+            {{/data}}
+            <td class="c last">
+            {{{cmds}}}
+            </td>
+        </tr>
+    {{/entities}}
+</table>
+{{/hasentities}}
+
+{{^hasentities}}
+    <div class="notify-info">{{#str}}emptyset, local_boardz_admin{{/str}}</div>
+{{/hasentities}}
+
+<div class="add-entity"><a href="{{{addurl}}}" class="btn">{{addstr}}</a> | <a class="btn" href="/local/boardz_admin/index.php">{{#str}}adminmenu, local_boardz_admin{{/str}}</a></div>
+
+<!-- /local_boardz_admin/entitylist -->
