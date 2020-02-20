@@ -1,0 +1,15 @@
+
+
+
+<!-- local_admin_boardz/entitylistform -->
+<div id="view-form">
+    <form action="{{{actionurl}}}">
+        <input type="hidden" name="view" value="{{view}}">
+        {{#str}}name, local_boardz_admin{{/str}} <input type="text" name="fname" value="{{fname}}">
+        {{#str}}classname, local_boardz_admin{{/str}} <input type="text" name="fclassname" value="{{fclassname}}">
+        {{#str}}attr, local_boardz_admin{{/str}} <input type="text" name="fattr" value="{{fattr}}"> = <input type="text" name="fattrvalue" value="{{fattrvalue}}">
+        &nbsp;&nbsp;&nbsp;&nbsp;{{#str}}tags, local_boardz_admin{{/str}} <input type="text" name="ftags" value="{{ftags}}">
+        <input type="submit" value="{{#str}}filter, local_boardz_admin{{/str}}">
+    </form>
+</div>
+<!-- /local_admin_boardz/entitylistform -->
