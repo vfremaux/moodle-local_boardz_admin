@@ -24,7 +24,9 @@ class admin_api {
             $qs .= '&'.$k.'='.urlencode($v);
         }
 
-        debug_trace('Boardz API Call : '.$url.$qs);
+        if (function_exists('debug_trace')) {
+            debug_trace('Boardz API Call : '.$url.$qs);
+        }
         $ch = curl_init($url.$qs);
 
         if ($showremotequeries) {
