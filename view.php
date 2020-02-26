@@ -43,7 +43,7 @@ $PAGE->set_title(get_string('pluginname', 'local_boardz_admin'));
 $PAGE->set_heading(get_string('pluginname', 'local_boardz_admin'));
 $PAGE->navbar->add(get_string('pluginname', 'local_boardz_admin'));
 $indexurl = new moodle_url('/local/boardz_admin/index.php');
-$PAGE->navbar->add(get_string('administration', 'local_boardz_admin'), $indexurl);
+$PAGE->navbar->add(get_string('boardzserver', 'local_boardz_admin'), $indexurl);
 $PAGE->navbar->add(get_string('admin'.$view, 'local_boardz_admin'));
 $PAGE->set_pagelayout('admin');
 
