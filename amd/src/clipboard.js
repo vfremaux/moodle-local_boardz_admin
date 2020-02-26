@@ -10,6 +10,7 @@ define(['jquery', 'core/config', 'core/log'], function($, cfg, log) {
         init: function() {
             $('.snappable').bind('click', this.snapToClipboard);
             $('#entity-drop-button').bind('click', this.openImportPopup);
+            $('#entity-drop-button-clode').bind('click', this.closeImportPopup);
             $('#entity-import-button').bind('click', this.importEntity);
             log.debug("AMD Boardz clipboard initialized");
         },
@@ -43,11 +44,16 @@ define(['jquery', 'core/config', 'core/log'], function($, cfg, log) {
 
         openImportPopup: function(e) {
 
-            log.debug(e.offsetX + ' ' + e.offsetY);
-            $('#entity-drop-from').css('top', e.offsetX - 60);
-            $('#entity-drop-from').css('top', e.offsetY + 10);
+            log.debug(e.pageX + ' ' + e.pageY);
+            $('#entity-drop-form').css('top', e.pageX - 60 + 'px');
+            $('#entity-drop-form').css('left', e.pageY - 310 + 'px');
 
-            $('#entity-drop-from').removeClass('local-boardz-admin-hide');
+            $('#entity-drop-form').removeClass('local-boardz-admin-hide');
+            e.stopPropagation();
+        },
+
+        closeImportPopup: function(e) {
+            $('#entity-drop-form').addClass('local-boardz-admin-hide');
             e.stopPropagation();
         },
 
@@ -62,7 +68,7 @@ define(['jquery', 'core/config', 'core/log'], function($, cfg, log) {
                 document.location.reload(true);
             }, 'json');
 
-            $('#entity-drop-from').addClass('local-boardz-admin-hide');
+            $('#entity-drop-form').addClass('local-boardz-admin-hide');
         }
 
     };

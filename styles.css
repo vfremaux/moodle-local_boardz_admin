@@ -79,11 +79,15 @@
 
 #entity-drop-from {
     position: absolute;
-    width: 300px:
+    width: 300px;
     height: 150px;
     background-color: white;
     border : 1px solid #ddd;
     padding: 10px;
+}
+
+#entity-drop-from-close {
+    float:right;
 }
 
 .local-boardz-admin-hide {
