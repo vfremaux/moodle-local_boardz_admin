@@ -45,11 +45,12 @@ define(['jquery', 'core/config', 'core/log'], function($, cfg, log) {
         openImportPopup: function(e) {
 
             log.debug(e.offsetX + ' ' + e.offsetY);
-            $('#entity-drop-form').css('top', e.offsetX - 60 + 'px');
-            $('#entity-drop-form').css('left', e.offsetY - 310 + 'px');
+            var cursorX = parseInt(e.offsetX.replace('px', ''));
+            var cursorY = parseInt(e.offsetY.replace('px', ''));
+            $('#entity-drop-form').css('left', cursorX - 310 + 'px');
+            $('#entity-drop-form').css('top', cursorY + 10 + 'px');
 
             $('#entity-drop-form').removeClass('local-boardz-admin-hide');
-            e.stopPropagation();
         },
 
         closeImportPopup: function(e) {
