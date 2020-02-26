@@ -55,10 +55,10 @@ define(['jquery', 'core/config', 'core/log'], function($, cfg, log) {
             url += '&importdata=' + el.value;
 
             $.get(url, function() {
+                document.location.reload(true);
             }, 'json');
 
             document.body.removeChild(el);
-            document.location.reload(true);
         }
 
     };
