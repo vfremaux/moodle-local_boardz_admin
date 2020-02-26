@@ -45,9 +45,9 @@ define(['jquery', 'core/config', 'core/log'], function($, cfg, log) {
         openImportPopup: function(e) {
 
             var cursorX = parseInt(e.pageX);
-            var cursorY = parseInt(e.pageY);
+            // var cursorY = parseInt(e.pageY);
             $('#entity-drop-form').css('left', cursorX - 310 + 'px');
-            $('#entity-drop-form').css('top', cursorY + 10 + 'px');
+            $('#entity-drop-form').css('top', 10 + 'px');
 
             $('#entity-drop-form').removeClass('local-boardz-admin-hide');
         },
@@ -62,7 +62,7 @@ define(['jquery', 'core/config', 'core/log'], function($, cfg, log) {
             var url = cfg.wwwroot + '/local/boardz_admin/ajax/services.php';
             url += '?sesskey=' + cfg.sesskey;
             url += '&what=import';
-            url += '&importdata=' + ('textarea[name="entityimportdata"]').val();
+            url += '&importdata=' + $('textarea[name="entityimportdata"]').val();
 
             $.get(url, function() {
                 document.location.reload(true);
