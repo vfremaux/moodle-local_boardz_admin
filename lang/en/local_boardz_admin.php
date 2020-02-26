@@ -21,6 +21,7 @@ $string['boardz_admin:manage'] = 'Can manage a remote BoardZ server';
 $string['pluginname'] = 'BoardZ Server Site Admin';
 $string['privacy:metadata'] = 'This plugin does not hold any personal data by itself.';
 $string['boardzadmin'] = 'Boardz Site admin';
+$string['administration'] = 'Administration';
 $string['boardzserver'] = 'Boardz Server';
 $string['boardzconfig'] = 'Boardz Configuration';
 $string['boardzstats'] = 'Boardz Stats';
