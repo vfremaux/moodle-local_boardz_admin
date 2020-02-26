@@ -44,9 +44,8 @@ define(['jquery', 'core/config', 'core/log'], function($, cfg, log) {
 
         openImportPopup: function(e) {
 
-            log.debug(e.offsetX + ' ' + e.offsetY);
-            var cursorX = parseInt(e.offsetX.replace('px', ''));
-            var cursorY = parseInt(e.offsetY.replace('px', ''));
+            var cursorX = parseInt(e.pageX);
+            var cursorY = parseInt(e.pageY);
             $('#entity-drop-form').css('left', cursorX - 310 + 'px');
             $('#entity-drop-form').css('top', cursorY + 10 + 'px');
 
