@@ -3,7 +3,7 @@
  */
 // jshint unused:false, undef:false
 
-define(['jquery', 'core/log'], function($, log) {
+define(['jquery', 'core/config', 'core/log'], function($, cfg, log) {
 
     var boardzclipboard = {
 
@@ -38,6 +38,27 @@ define(['jquery', 'core/log'], function($, log) {
             document.execCommand('copy');
             document.body.removeChild(el);
         },
+
+        importEntity: function() {
+            var el = document.createElement('textarea');
+            el.style.position = 'absolute';
+            el.style.left = '-9999px';
+            document.body.appendChild(el);
+            el.focus();
+            el.select();
+            document.execCommand('Paste');
+
+            var url = cfg.wwwroot + '/local/boardz_admin/ajax/services.php';
+            url += '?sesskey=' + cfg.sesskey;
+            url += '&what=import';
+            url += '&importdata=' + el.value;
+
+            $.get(url, function() {
+            }, 'json');
+
+            document.body.removeChild(el);
+        }
+
     };
 
     return boardzclipboard;

@@ -109,11 +109,13 @@ $string['deletemeasurement'] = 'Delete measurement';
 $string['deleteparser'] = 'Delete parser';
 $string['deletefeed'] = 'Delete feed';
 $string['deleterenderer'] = 'Delete renderer';
+$string['dropentity'] = 'Drop entity';
 $string['system'] = 'system';
 $string['config'] = 'Configuration (Read only)';
 $string['stats'] = 'Statistics';
 $string['performance'] = 'Performances';
 $string['status'] = 'Status';
+$string['snapobject'] = 'Snap object definition to clipboard';
 
 $string['emulatecommunity'] = 'Emulate the community version.';
 $string['emulatecommunity_desc'] = 'Switches the code to the community version. The result will be more compatible, but some features will not be available anymore.';

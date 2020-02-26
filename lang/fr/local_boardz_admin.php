@@ -82,6 +82,8 @@ $string['performance'] = 'Performances';
 $string['status'] = 'Etat';
 $string['viewraw'] = 'Voir la sortie brute';
 $string['viewacquire'] = 'Voir la sortie d\'acquisition (partielle)';
+$string['snapobject'] = 'Capturer l\'objet dans le presse papier';
+$string['dropentity'] = 'Importer une entité';
 
 $string['updateentity'] = 'Modifier l\'entité';
 $string['updatewidget'] = 'Modifier le widget';

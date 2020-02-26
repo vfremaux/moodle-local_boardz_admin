@@ -15,7 +15,7 @@
     {{#entities}}
         <tr data-uid={{uid}}" data-id="{{id}}">
             {{#data}}
-            <td class="c{{i}}">{{{datum}}}</td>
+            <td class="c{{i}}" {{#title}}title="{{title}}"{{/title}}>{{{datum}}}</td>
             {{/data}}
             <td class="c last">
             {{{cmds}}}

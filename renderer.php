@@ -96,7 +96,7 @@ class local_boardz_admin_renderer extends plugin_renderer_base {
 
                 foreach ($entity as $label => $data) {
 
-                    if ($label == 'deleted' || $label == 'deletetime') {
+                    if (in_array($label, ['deleted', 'deletetime', 'uid'])) {
                         continue;
                     }
 
@@ -153,7 +153,7 @@ class local_boardz_admin_renderer extends plugin_renderer_base {
                         $data = $this->output->render_from_template('local_boardz_admin/attribute', $attributes);
                     }
 
-                    if (@$define->fields->$label->type == 'internal' || @$define->fields->$label->type == 'hidden') {
+                    if (in_array(@$define->fields->$label->type, ['internal', 'hidden'])) {
                         continue;
                     }
 
@@ -168,6 +168,12 @@ class local_boardz_admin_renderer extends plugin_renderer_base {
                     $datumtpl->datum = $data;
                     $datumtpl->label = $label;
                     $datumtpl->i = $i;
+                    if ($label == 'id') {
+                        $datumtpl->title = "UID: {$entity->uid}";
+                    } else {
+                        $datumtpl->title = false;
+                    }
+
                     $datatpl->data[] = $datumtpl;
                     $i++;
                 }
@@ -191,8 +197,12 @@ class local_boardz_admin_renderer extends plugin_renderer_base {
                     $cmds[] = '<a href="'.$deleteurl.'">'.$this->output->pix_icon('t/delete', get_string('delete'), 'core').'</a>';
                 }
 
-                $serialized = base64_encode(json_encode($entity));
-                $cmds[] = '<i class="fa fa-clipboard snappable" data-target="self" data-str="'.$serialized.'"></i>';
+                $entitystub = new StdClass;
+                $entitystub->record = $entity;
+                $entitystub->entity = $view;
+                $serialized = base64_encode(json_encode($entitystub));
+                $snapstr = get_string('snapobject', 'local_boardz_admin');
+                $cmds[] = '<i class="fa fa-clipboard snappable" data-target="self" data-str="'.$serialized.'" title="'.$snapstr.'"></i>';
 
                 if ($template->entity == 'widget' || $template->entity == 'panel') {
                     $params = [];
@@ -238,7 +248,7 @@ class local_boardz_admin_renderer extends plugin_renderer_base {
                 }
 
                 $datatpl->cmds = implode ('&nbsp;', $cmds);
-                $datatpl->uid = $entity->uid.'<br/><span class="boardz-tags"'.get_string('tags', 'local_boardz_admin').': '.$entity->tags.'</span>';
+                $datatpl->uid = $entity->uid;
                 $datatpl->id = $entity->id;
 
                 $template->entities[] = $datatpl;
