@@ -9,7 +9,8 @@ define(['jquery', 'core/config', 'core/log'], function($, cfg, log) {
 
         init: function() {
             $('.snappable').bind('click', this.snapToClipboard);
-            $('#entity-drop-button').bind('click', this.importEntity);
+            $('#entity-drop-button').bind('click', this.openImportPopup);
+            $('#entity-import-button').bind('click', this.importEntity);
             log.debug("AMD Boardz clipboard initialized");
         },
 
@@ -40,25 +41,28 @@ define(['jquery', 'core/config', 'core/log'], function($, cfg, log) {
             document.body.removeChild(el);
         },
 
+        openImportPopup: function(e) {
+
+            log.debug(e.offsetX + ' ' + e.offsetY);
+            $('#entity-drop-from').css('top', e.offsetX - 60);
+            $('#entity-drop-from').css('top', e.offsetY + 10);
+
+            $('#entity-drop-from').removeClass('local-boardz-admin-hide');
+            e.stopPropagation();
+        },
+
         importEntity: function() {
-            var el = document.createElement('textarea');
-            el.style.position = 'absolute';
-            el.style.left = '-9999px';
-            document.body.appendChild(el);
-            el.focus();
-            el.select();
-            document.execCommand('Paste');
 
             var url = cfg.wwwroot + '/local/boardz_admin/ajax/services.php';
             url += '?sesskey=' + cfg.sesskey;
             url += '&what=import';
-            url += '&importdata=' + el.value;
+            url += '&importdata=' + ('textarea[name="entityimportdata"]').val();
 
             $.get(url, function() {
                 document.location.reload(true);
             }, 'json');
 
-            document.body.removeChild(el);
+            $('#entity-drop-from').addClass('local-boardz-admin-hide');
         }
 
     };

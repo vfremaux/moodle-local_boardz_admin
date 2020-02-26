@@ -76,3 +76,16 @@
     display: inline-block;
     padding: 2px 5px;
 }
+
+#entity-drop-from {
+    position: absolute;
+    width: 300px:
+    height: 150px;
+    background-color: white;
+    border : 1px solid #ddd;
+    padding: 10px;
+}
+
+.local-boardz-admin-hide {
+    display: none;
+}
