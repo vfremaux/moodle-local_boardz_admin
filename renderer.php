@@ -187,9 +187,12 @@ class local_boardz_admin_renderer extends plugin_renderer_base {
 
                 if ($deletable) {
                     $params = ['view' => $template->entity, 'id' => $entity->id, 'uid' => $entity->uid, 'what' => 'delete'];
-                    $updateurl = new moodle_url('/local/boardz_admin/view.php', $params);
-                    $cmds[] = '<a href="'.$updateurl.'">'.$this->output->pix_icon('t/delete', get_string('delete'), 'core').'</a>';
+                    $deleteurl = new moodle_url('/local/boardz_admin/view.php', $params);
+                    $cmds[] = '<a href="'.$deleteurl.'">'.$this->output->pix_icon('t/delete', get_string('delete'), 'core').'</a>';
                 }
+
+                $serialized = base64_encode(json_encode($entity));
+                $cmds[] = '<i class="fa fa-clipboard snappable" data-target="self" data-str="'.$serialized.'"></i>';
 
                 if ($template->entity == 'widget' || $template->entity == 'panel') {
                     $params = [];
