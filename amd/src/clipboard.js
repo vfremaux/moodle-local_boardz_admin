@@ -44,9 +44,9 @@ define(['jquery', 'core/config', 'core/log'], function($, cfg, log) {
 
         openImportPopup: function(e) {
 
-            log.debug(e.pageX + ' ' + e.pageY);
-            $('#entity-drop-form').css('top', e.pageX - 60 + 'px');
-            $('#entity-drop-form').css('left', e.pageY - 310 + 'px');
+            log.debug(e.offsetX + ' ' + e.offsetY);
+            $('#entity-drop-form').css('top', e.offsetX - 60 + 'px');
+            $('#entity-drop-form').css('left', e.offsetY - 310 + 'px');
 
             $('#entity-drop-form').removeClass('local-boardz-admin-hide');
             e.stopPropagation();
