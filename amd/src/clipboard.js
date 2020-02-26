@@ -46,8 +46,8 @@ define(['jquery', 'core/config', 'core/log'], function($, cfg, log) {
 
             var cursorX = parseInt(e.pageX);
             // var cursorY = parseInt(e.pageY);
-            $('#entity-drop-form').css('left', cursorX - 310 + 'px');
-            $('#entity-drop-form').css('top', 10 + 'px');
+            $('#entity-drop-form').css('left', cursorX - 330 + 'px');
+            $('#entity-drop-form').css('top', 80 + 'px');
 
             $('#entity-drop-form').removeClass('local-boardz-admin-hide');
         },
