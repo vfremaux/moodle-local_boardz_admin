@@ -47,6 +47,8 @@ $string['display'] = 'Afficher';
 $string['core'] = 'Core';
 $string['tags'] = 'Tags';
 $string['unconfigured'] = 'L\'accès au serveur Boardz n\'est pas configuré';
+$string['dropin'] = 'Coller les données';
+$string['doimport'] = 'Importer';
 
 $string['adminpanels'] = 'Gérer les panneaux';
 $string['adminstorages'] = 'Gérer les stockages';
