@@ -58,6 +58,7 @@ define(['jquery', 'core/config', 'core/log'], function($, cfg, log) {
             }, 'json');
 
             document.body.removeChild(el);
+            document.location.reload(true);
         }
 
     };
