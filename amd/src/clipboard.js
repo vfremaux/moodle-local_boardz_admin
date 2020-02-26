@@ -10,7 +10,7 @@ define(['jquery', 'core/config', 'core/log'], function($, cfg, log) {
         init: function() {
             $('.snappable').bind('click', this.snapToClipboard);
             $('#entity-drop-button').bind('click', this.openImportPopup);
-            $('#entity-drop-button-clode').bind('click', this.closeImportPopup);
+            $('#entity-drop-button-close').bind('click', this.closeImportPopup);
             $('#entity-import-button').bind('click', this.importEntity);
             log.debug("AMD Boardz clipboard initialized");
         },
