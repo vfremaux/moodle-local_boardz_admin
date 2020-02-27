@@ -47,6 +47,8 @@ $string['display'] = 'Afficher';
 $string['core'] = 'Core';
 $string['tags'] = 'Tags';
 $string['unconfigured'] = 'L\'accès au serveur Boardz n\'est pas configuré';
+$string['dropin'] = 'Coller les données';
+$string['doimport'] = 'Importer';
 
 $string['adminpanels'] = 'Gérer les panneaux';
 $string['adminstorages'] = 'Gérer les stockages';
@@ -82,6 +84,8 @@ $string['performance'] = 'Performances';
 $string['status'] = 'Etat';
 $string['viewraw'] = 'Voir la sortie brute';
 $string['viewacquire'] = 'Voir la sortie d\'acquisition (partielle)';
+$string['snapobject'] = 'Capturer l\'objet dans le presse papier';
+$string['dropentity'] = 'Importer une entité';
 
 $string['updateentity'] = 'Modifier l\'entité';
 $string['updatewidget'] = 'Modifier le widget';

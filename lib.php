@@ -138,6 +138,11 @@ function boardz_process_defined_form_values(&$formrecord, $attributes) {
     }
 }
 
+/**
+ * Proceeds to technical adaptations of some special cases in attributes.
+ * @param object $data input data
+ * @param array $attributes Attribute definitions from classes "defines"
+ */
 function boardz_remap_data_before_call($data, $attributes) {
 
     foreach ($attributes as $attrname => $desc) {
