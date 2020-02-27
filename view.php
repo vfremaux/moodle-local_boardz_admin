@@ -46,6 +46,7 @@ $indexurl = new moodle_url('/local/boardz_admin/index.php');
 $PAGE->navbar->add(get_string('boardzserver', 'local_boardz_admin'), $indexurl);
 $PAGE->navbar->add(get_string('admin'.$view, 'local_boardz_admin'));
 $PAGE->set_pagelayout('admin');
+$PAGE->requires->js_call_amd('local_boardz_admin/clipboard', 'init');
 
 if (!empty($action)) {
     include_once($CFG->dirroot.'/local/boardz_admin/view.controller.php');

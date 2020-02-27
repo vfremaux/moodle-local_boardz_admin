@@ -4,12 +4,28 @@
 <!-- local_admin_boardz/entitylistform -->
 <div id="view-form">
     <form action="{{{actionurl}}}">
+        <div id="entity-filter-form" style="display:inline-block;">
         <input type="hidden" name="view" value="{{view}}">
         {{#str}}name, local_boardz_admin{{/str}} <input type="text" name="fname" value="{{fname}}">
         {{#str}}classname, local_boardz_admin{{/str}} <input type="text" name="fclassname" value="{{fclassname}}">
         {{#str}}attr, local_boardz_admin{{/str}} <input type="text" name="fattr" value="{{fattr}}"> = <input type="text" name="fattrvalue" value="{{fattrvalue}}">
         &nbsp;&nbsp;&nbsp;&nbsp;{{#str}}tags, local_boardz_admin{{/str}} <input type="text" name="ftags" value="{{ftags}}">
         <input type="submit" value="{{#str}}filter, local_boardz_admin{{/str}}">
+        </div>
+        <div id="drop-entity" style="display:inline-block;float:right">
+            <i id="entity-drop-button" class="fa fa-eyedropper" title="{{#str}}dropentity, local_boardz_admin{{/str}}"></i>
+        </div>
     </form>
+
+    <div id="entity-drop-form" class="local-boardz-admin-hide">
+        <i class="fa fa-close" id="entity-drop-button-close"></i>
+        <h3>{{#str}}dropin, local_boardz_admin{{/str}}</h3>
+        <form name="entitydropform" action="{{{importurl}}}" method="POST">
+            <input type="hidden" name="view" value="{{view}}" />
+            <input type="hidden" name="what" value="import" />
+            <textarea name="entityimportdata" rows="3" cols="30"></textarea>
+            <button type="submit" id="entity-import-button" value="goimport" />{{#str}}doimport, local_boardz_admin{{/str}}</button>
+        </form>
+    </div>
 </div>
 <!-- /local_admin_boardz/entitylistform -->
