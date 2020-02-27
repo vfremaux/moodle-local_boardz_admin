@@ -14,16 +14,18 @@
         </div>
         <div id="drop-entity" style="display:inline-block;float:right">
             <i id="entity-drop-button" class="fa fa-eyedropper" title="{{#str}}dropentity, local_boardz_admin{{/str}}"></i>
-            <div id="entity-drop-form" class="local-boardz-admin-hide">
-                <i class="fa fa-close" id="entity-drop-button-close"></i>
-                <h3>{{#str}}dropin, local_boardz_admin{{/str}}</h3>
-                <form name="entitydropform">
-                    <textarea name="entityimportdata" rows="3" cols="30">
-                    </textarea>
-                    <imput type="button" id="entity-import-button" name="goimport" value="">{{#str}}doimport, local_boardz_admin{{/str}}</button>
-                </form>
-            </div>
         </div>
     </form>
+
+    <div id="entity-drop-form" class="local-boardz-admin-hide">
+        <i class="fa fa-close" id="entity-drop-button-close"></i>
+        <h3>{{#str}}dropin, local_boardz_admin{{/str}}</h3>
+        <form name="entitydropform" action="{{{importurl}}}" method="POST'>
+            <input type="hidden" name="entity" value="{{view}}">
+            <input type="hidden" name="what" value="import">
+            <textarea name="entityimportdata" rows="3" cols="30"></textarea>
+            <button type="submit" id="entity-import-button" value="goimport" />{{#str}}doimport, local_boardz_admin{{/str}}</button>
+        </form>
+    </div>
 </div>
 <!-- /local_admin_boardz/entitylistform -->

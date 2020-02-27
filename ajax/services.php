@@ -24,6 +24,7 @@
 
 require('../../../config.php');
 require_once($CFG->dirroot.'/local/boardz_admin/classes/admin_api.class.php');
+require_once($CFG->dirroot.'/local/boardz_admin/lib.php');
 
 define('AJAX_SCRIPT', 1);
 
@@ -35,24 +36,29 @@ require_capability('moodle/site:config', $context);
 $action = required_param('what', PARAM_ALPHA);
 require_sesskey();
 
+/*
+ * Unused at the moment. Keep for future use.
+ */
+
 switch ($action) {
     case 'import': {
         // Imports an entity.
         $data = required_param('importdata', PARAM_TEXT);
         $jsonobject = base64_decode($data);
         $entitystub = json_decode($jsonobject);
+        $entitystub->entity = preg_replace('/s$/', '', $entitystub->entity);
 
         $cmd = 'admin_defines';
         $defines = (array) \boardz\admin_api::call($cmd, ['entity' => $entitystub->entity]);
         $attributes = \boardz\admin_api::process_defines_for_form($defines);
 
         $cmd = 'admin_save_object';
-        $id = clean_param(@$_REQUEST['id'], PARAM_INT); // Fails comming in form return.
-        $entity = clean_param($_REQUEST['entity'], PARAM_TEXT); // Fails comming in form return.
         $params = boardz_remap_data_before_call($entitystub->record, $attributes);
         $params->entity = $entitystub->entity;
-        $params->mode = 'import';
-        // $params->id = $id;
+        // Ensure we have a brand new object.
+        $params->name .= ' (Imported)';
+        $params->uid = uniqid();
+        unset($params->id);
         \boardz\admin_api::call($cmd, $params);
     }
 }

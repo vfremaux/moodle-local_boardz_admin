@@ -199,7 +199,7 @@ class local_boardz_admin_renderer extends plugin_renderer_base {
 
                 $entitystub = new StdClass;
                 $entitystub->record = $entity;
-                $entitystub->entity = $view;
+                $entitystub->entity = preg_replace('/s$/', '', $view); // Need singularize.
                 $serialized = base64_encode(json_encode($entitystub));
                 $snapstr = get_string('snapobject', 'local_boardz_admin');
                 $cmds[] = '<i class="fa fa-clipboard snappable" data-target="self" data-str="'.$serialized.'" title="'.$snapstr.'"></i>';

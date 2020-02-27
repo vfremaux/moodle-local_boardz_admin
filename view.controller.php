@@ -25,9 +25,10 @@
  */
 namespace local_boardz_admin;
 
-defined('MOODLE_INTERNAL') || die();
+require_once($CFG->dirroot.'/local/boardz_admin/classes/admin_api.class.php');
+require_once($CFG->dirroot.'/local/boardz_admin/lib.php');
 
-// Note that other use cases are handled by the edit_catalogue.php script.
+defined('MOODLE_INTERNAL') || die();
 
 class view_controller {
 
@@ -63,6 +64,15 @@ class view_controller {
                 $this->data->entity = preg_replace('/s$/', '', $view);
                 break;
             }
+
+            case 'import': {
+                $view = required_param('view', PARAM_TEXT);
+                $this->data->entity = preg_replace('/s$/', '', $view);
+                $data = required_param('entityimportdata', PARAM_TEXT);
+                $jsonobject = base64_decode($data);
+                $this->data->entitystub = json_decode($jsonobject);
+                break;
+            }
         }
 
         $this->received = true;
@@ -92,6 +102,22 @@ class view_controller {
 
             $params = ['view' => $this->data->entity.'s'];
             return new \moodle_url('/local/boardz_admin/view.php', $params);
+
+        } else if ($cmd == 'import') {
+
+            $cmd = 'admin_defines';
+            $defines = (array) \boardz\admin_api::call($cmd, ['entity' => $this->data->entity]);
+            $attributes = \boardz\admin_api::process_defines_for_form($defines);
+
+            $cmd = 'admin_save_object';
+            $params = boardz_remap_data_before_call($this->data->entitystub, $attributes);
+            $params->entity = $this->data->entity;
+            // Ensure we have a brand new object.
+            $params->name .= ' (Imported)';
+            $params->uid = uniqid();
+            unset($params->id);
+            \boardz\admin_api::call($cmd, $params);
+
         }
     }
 
@@ -103,6 +129,9 @@ class view_controller {
             'delete' => [
                 'uid' => 'ID of entity to delete',
                 'entity' => 'Name of deleted entity'],
+            'import' => [
+                'entity' => 'Name of deleted entity'],
+                'entityimportdata' => 'A base 64 encoded stub of jsoned data'],
         ];
     }
 }

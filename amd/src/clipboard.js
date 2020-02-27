@@ -47,7 +47,7 @@ define(['jquery', 'core/config', 'core/log'], function($, cfg, log) {
             var cursorX = parseInt(e.pageX);
             // var cursorY = parseInt(e.pageY);
             $('#entity-drop-form').css('left', cursorX - 330 + 'px');
-            $('#entity-drop-form').css('top', 80 + 'px');
+            $('#entity-drop-form').css('top', 90 + 'px');
 
             $('#entity-drop-form').removeClass('local-boardz-admin-hide');
         },
@@ -57,6 +57,7 @@ define(['jquery', 'core/config', 'core/log'], function($, cfg, log) {
             e.stopPropagation();
         },
 
+        /* Unused at the moment : MVC implementation on view.php */
         importEntity: function() {
 
             var url = cfg.wwwroot + '/local/boardz_admin/ajax/services.php';
@@ -65,7 +66,6 @@ define(['jquery', 'core/config', 'core/log'], function($, cfg, log) {
             url += '&importdata=' + $('textarea[name="entityimportdata"]').val();
 
             $.get(url, function() {
-                document.location.reload(true);
             }, 'json');
 
             $('#entity-drop-form').addClass('local-boardz-admin-hide');
