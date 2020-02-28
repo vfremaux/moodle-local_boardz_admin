@@ -43,6 +43,7 @@ class admin_api {
         curl_setopt($ch, CURLOPT_POST, false);
         curl_setopt($ch, CURLOPT_USERAGENT, 'Moodle');
         curl_setopt($ch, CURLOPT_HTTPHEADER, array("Content-Type: text/xml charset=UTF-8"));
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
 
         if (!empty($CFG->proxytype)) {
             if ($CFG->proxytype == 'SOCKS5') {
