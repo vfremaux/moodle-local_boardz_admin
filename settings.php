@@ -58,6 +58,11 @@ if ($hassiteconfig) {
     $desc = get_string('configtcpport_desc', 'local_boardz_admin');
     $settings->add(new admin_setting_configtext($key, $label, $desc, '80'));
 
+    $key = 'local_boardz_admin/checkssl';
+    $label = get_string('configcheckssl', 'local_boardz_admin');
+    $desc = get_string('configcheckssl_desc', 'local_boardz_admin');
+    $settings->add(new admin_setting_configcheckbox($key, $label, $desc, 1));
+
     $key = 'local_boardz_admin/admintoken';
     $label = get_string('configadmintoken', 'local_boardz_admin');
     $desc = get_string('configadmintoken_desc', 'local_boardz_admin');

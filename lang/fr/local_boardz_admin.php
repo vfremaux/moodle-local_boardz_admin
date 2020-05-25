@@ -124,6 +124,8 @@ $string['licensekey_desc'] = 'Entrez ici la clef de produit que vous avez reçu 
 
 $string['configbaseurl'] = 'Url de base ';
 $string['configbaseurl_desc'] = 'Url d\'accès au service boardz';
+$string['configcheckssl'] = 'Vérfier le certificat SSL et le serveur';
+$string['configcheckssl_desc'] = '';
 $string['configtcpport'] = 'Port';
 $string['configtcpport_desc'] = 'Port TCP du serveur';
 $string['configadmintoken'] = 'Token de l\'administration';

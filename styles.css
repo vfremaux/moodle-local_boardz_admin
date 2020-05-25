@@ -93,3 +93,13 @@
 .local-boardz-admin-hide {
     display: none;
 }
+
+#id_rendererid.-boardz-ui-HtmlMenu {
+    display: none;
+}
+
+.empty-set {
+    font-weight: bolder;
+    color: #A00000;
+    font-size: 1.1em;
+}

@@ -43,6 +43,8 @@ class admin_api {
         curl_setopt($ch, CURLOPT_POST, false);
         curl_setopt($ch, CURLOPT_USERAGENT, 'Moodle');
         curl_setopt($ch, CURLOPT_HTTPHEADER, array("Content-Type: text/xml charset=UTF-8"));
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 
         if (!empty($CFG->proxytype)) {
             if ($CFG->proxytype == 'SOCKS5') {
@@ -82,7 +84,7 @@ class admin_api {
                 echo "\n";
                 echo '</pre>';
             }
-            throw new \Exception("Error in Boardz communication : Empty returned object.");
+            throw new \Exception("Error in Boardz communication : Empty or unparsable returned object. The cause of this may be caused by debugging extraneous outputs that alter the expected json syntax. check in debug mode to see the call ra response.");
         }
 
         if (!empty($input->error)) {
