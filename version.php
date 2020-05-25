@@ -27,7 +27,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 $plugin->component = 'local_boardz_admin';
-$plugin->version  = 2019051100;   // The (date) version of this plugin.
+$plugin->version  = 2019053000;   // The (date) version of this plugin.
 $plugin->requires = 2018112800;   // Requires this Moodle version.
 $plugin->maturity = MATURITY_RC;
 $plugin->release = '3.7.0 (Build 2019053000)';

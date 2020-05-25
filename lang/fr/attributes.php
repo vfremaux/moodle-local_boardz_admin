@@ -59,6 +59,7 @@ $string['float'] = 'Flottant';
 $string['groupfields'] = 'Groupage';
 $string['groupid'] = 'ID de groupe';
 $string['groupname'] = 'Nom de groupe';
+$string['global'] = 'Global';
 $string['height'] = 'Hauteur';
 $string['horiz'] = 'Horizontal';
 $string['horizontalbar'] = 'Barre horizontale';
@@ -85,6 +86,7 @@ $string['maxwidth'] = 'Largeur max';
 $string['measurementid'] = 'ID de mesure';
 $string['measurementids'] = 'Mesures';
 $string['measurementlabels'] = 'Clefs des mesures';
+$string['menuitems'] = 'Eléments de menu';
 $string['method'] = 'Fonction';
 $string['mindate'] = 'Date min';
 $string['minheight'] = 'Hauteur min';
@@ -189,3 +191,21 @@ Le traitement est similaire à celui de la clause HAVING en SQL. Vous pouvez uti
 
 $string['componentactionext_help'] = 'Si cet attribut est utilisé, il prend le pas sur la sélection de composant/action pour effectuer une sélection étendue par expression régulière.
 Le motif s\'applique à la combinaison "&lt;composant&gt;/&lt;action&gt;" et accepte la syntaxe POSIX standard';
+
+$string['menuitems_help'] = 'Définissez des éléments de menu comme des lignes de déclarations. Un élément de menu peut être constitué de :
+<ul><li>une marque éventuelle de niveau (des tirets)</li>
+<li>un libellé</li>
+<li>un séparateur (|)</li>
+<li>un UID de panneau ou une url relative ou absolue</li>
+</ul>
+Vous pouvez utiliser le caractère \'=\' pour demander un séparateur.
+<p>Exemple</p>
+Paneau 1|dev-wdg-1
+- Sous Paneau 1.1|dev-wdg-4
+- sous Paneau 1.2|dev-wdg-5
+Paneau 2|dev-wdg-2
+Paneau 3|dev-wdg-3
+=
+Site Boardz|https://www.boardz2.com
+
+';

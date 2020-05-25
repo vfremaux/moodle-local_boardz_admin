@@ -165,6 +165,9 @@ class local_boardz_admin_renderer extends plugin_renderer_base {
                     }
 
                     $datumtpl = new StdClass;
+                    if (is_null($data)) {
+                        $datumtpl->isnull = true;
+                    }
                     $datumtpl->datum = $data;
                     $datumtpl->label = $label;
                     $datumtpl->i = $i;

@@ -66,6 +66,7 @@ $string['formula'] = 'Formula';
 $string['groupfields'] = 'Group fields';
 $string['groupid'] = 'Group ID';
 $string['groupname'] = 'Group name';
+$string['global'] = 'Global';
 $string['height'] = 'Height';
 $string['horiz'] = 'Horizontal';
 $string['horizontalBar'] = 'Horizontal Bar';
@@ -93,6 +94,7 @@ $string['maxwidth'] = 'Max width';
 $string['measurementid'] = 'Measurement';
 $string['measurementids'] = 'Measurements';
 $string['measurementlabels'] = 'Measurement labels (assoc keys)';
+$string['menuitems'] = 'Menu items';
 $string['method'] = 'Method';
 $string['mindate'] = 'Min date';
 $string['minheight'] = 'Min height';
@@ -209,3 +211,21 @@ $string['postopconditions_help'] = 'Those conditions apply on the final value as
 
 $string['componentactionext_help'] = 'If this attribute is set, it will override any composant/action selection for an extended, regular expression driven selection.
 The preg pattern applies to the "&lt;composant&gt;/&lt;action&gt;" concatenation and accept the standard POSIX syntax.';
+
+$string['menuitems_help'] = 'Define menu items as one declaration per line. You may declare a menu item as:
+<ul><li>a level mark</li>
+<li>A label</li>
+<li>a pipe separator</li>
+<li>a panel uid or any renderable uid, or an external or relative url</li>
+</ul>
+Use = for a separator.
+<p>Example</p>
+Panel1|dev-wdg-1
+- SubPanel2|dev-wdg-4
+- subPanel2|dev-wdg-5
+Panel2|dev-wdg-2
+Panel3|dev-wdg-3
+=
+Boardz|https://www.boardz2.com
+
+';

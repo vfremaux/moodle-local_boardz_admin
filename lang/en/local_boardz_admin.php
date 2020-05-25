@@ -130,6 +130,8 @@ $string['licensekey_desc'] = 'Input here the product license key you got from yo
 
 $string['configbaseurl'] = 'Server base url';
 $string['configbaseurl_desc'] = 'Access base url of boardz server';
+$string['configcheckssl'] = 'Check SSL host and certificate';
+$string['configcheckssl_desc'] = '';
 $string['configtcpport'] = 'Server TCP Port';
 $string['configtcpport_desc'] = 'Access TCP port of boardz server';
 $string['configadmintoken'] = 'Administration token';

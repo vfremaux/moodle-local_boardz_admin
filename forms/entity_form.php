@@ -4,6 +4,7 @@ defined('MOODLE_INTERNAL') || die;
 
 require_once($CFG->libdir.'/formslib.php');
 require_once($CFG->dirroot.'/local/boardz_admin/extralib/hierselect.php');
+require_once($CFG->dirroot.'/local/boardz_admin/__other/colourpicker.php');
 
 class entity_form extends moodleform {
 
@@ -14,14 +15,12 @@ class entity_form extends moodleform {
         $classoptions = array_combine($this->_customdata['classes'], $this->_customdata['classes']);
         $mform->addElement('select', 'classname', get_string('classname', 'local_boardz_admin'), $classoptions);
 
-
         if (!empty($this->_customdata['attributes'])) {
 
             // Start arranging elements by section.
             foreach ($this->_customdata['attributes'] as $attrname => $desc) {
                 $bysection[@$desc->section][$attrname] = $desc;
             }
-
 
             foreach ($bysection as $section => $attributes) {
 
@@ -58,6 +57,12 @@ class entity_form extends moodleform {
                         case 'checkbox': {
                             $mform->addElement('checkbox', $attrname, get_string($attrname, 'local_boardz_admin'), '', $attrs);
                             $mform->setType($attrname, PARAM_BOOL);
+                            break;
+                        }
+
+                        case 'colourpicker': {
+                            $mform->addElement('colourpicker', $attrname, get_string($attrname, 'local_boardz_admin'), '', $attrs);
+                            $mform->setType($attrname, PARAM_TEXT);
                             break;
                         }
 
