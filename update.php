@@ -88,6 +88,17 @@ if ($uid) {
     $entityrecord->entity = $entity;
     $entityrecord->siteid = $CFG->wwwroot; // Do NOT rely on internal siteid from boardz.
     $mform->set_data($entityrecord);
+/*
+// Should never use internal ids.
+} else if ($id) {
+    // Get the object info to load into the form.
+    $cmd = 'admin_get_object';
+    $entityrecord = \boardz\admin_api::call($cmd, ['entity' => $entity, 'id' => $id]);
+
+    boardz_process_defined_form_values($entityrecord, $attributes);
+    $entityrecord->entity = $entity;
+    $mform->set_data($entityrecord);
+*/
 } else {
     // New record from scratch.
     $entityrecord = new StdClass;

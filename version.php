@@ -30,8 +30,8 @@ $plugin->component = 'local_boardz_admin';
 $plugin->version  = 2019053000;   // The (date) version of this plugin.
 $plugin->requires = 2018112800;   // Requires this Moodle version.
 $plugin->maturity = MATURITY_RC;
-$plugin->release = '3.7.0 (Build 2019053000)';
+$plugin->release = '3.8.0 (Build 2019053000)';
 
 // Non moodle attributes.
-$plugin->codeincrement = '3.7.0000';
+$plugin->codeincrement = '3.8.0000';
 $plugin->privacy = 'dualrelease';
